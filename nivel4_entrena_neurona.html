@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller de IA · Nivel 4: Entrena la neurona</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/mapa-y-calculadora.css">
+<link rel="stylesheet" href="css/entrenamiento.css">
+
+</head>
+<body>
+<header class="top">
+  <div class="logo"><img src="assets/logo_usb_ing.jpg" alt="Universidad de San Buenaventura · Ingeniería USB Cali"></div>
+  <div class="title">
+    <h1>¿Qué hay detrás de un <span>LLM</span>?</h1>
+    <p>Taller de IA para colegios · Nivel 4</p>
+  </div>
+  <nav class="steps" aria-label="Niveles del taller">
+    <a class="step" href="index.html">🏠 Inicio</a>
+    <a class="step" href="nivel1_autocompleta.html">1 Autocompleta</a>
+    <a class="step" href="nivel2_mapa_palabras.html">2 El mapa</a>
+    <a class="step" href="nivel3_calculadora_palabras.html">3 Calculadora</a>
+    <a class="step on" href="nivel4_entrena_neurona.html">4 Entrena</a>
+    <a class="step" href="nivel5_temperatura.html">5 Temperatura</a>
+  </nav>
+  <div class="score" id="score"></div>
+</header>
+
+<main class="layout">
+  <section class="card idea">
+    <h2>💡 La idea clave</h2>
+    <p>Una <b>neurona artificial</b> es una cuenta: multiplica cada uno de los <b>300 números</b> de una palabra por un <b>peso</b>, suma todo y decide <b>sí o no</b>. <b>Entrenar</b> es ajustar esos 300 pesos, poquito a poquito, hasta que acierte con los ejemplos que tú le das.</p>
+  </section>
+
+  <section class="card mapcard">
+    <div class="presets" id="tasks"></div>
+    <div class="trainbar">
+      <button class="btn" id="btnRun">▶ Entrenar</button>
+      <button class="btn ghost" id="btnReset">↺ Neurona nueva</button>
+      <label class="lr">🐢<input type="range" id="lr" min="1" max="10" value="5">🐇</label>
+      <span class="sp"></span>
+      <button class="btn" id="btnExam">📝 Presentar examen</button>
+      <button class="btn ghost" id="btnRand">🎁 Ejemplos al azar</button>
+      <button class="btn ghost" id="btnClear">🧹 Borrar</button>
+      <button class="btn ghost" id="btnHow">❓ Cómo se juega</button>
+    </div>
+    <div class="meterbox"><div id="meterTxt"></div></div>
+    <div class="svgwrap">
+    <svg id="map" viewBox="0 0 800 800" role="img" aria-label="Mapa 2D coloreado por lo que opina la neurona"></svg>
+    </div>
+    <div class="toolbar">
+      <div class="legend">
+        <span class="lg"><i style="background:#E87800"></i>Neurona dice SÍ</span>
+        <span class="lg"><i style="background:#202050"></i>Neurona dice NO</span>
+        <span class="lg"><i style="background:#fff;border:3px solid #D64550"></i>Se equivoca</span>
+      </div>
+      <span class="sp"></span>
+      <div class="seg mini" id="axsel"><button class="on" data-a="0">PC1·PC2</button><button data-a="1">PC1·PC3</button><button data-a="2">PC2·PC3</button></div>
+    </div>
+  </section>
+
+  <aside class="side">
+    <div class="card">
+      <div class="tabs">
+        <button class="tab on" data-t="res">🧠 Neurona</button>
+        <button class="tab" data-t="mis">🎯 Rondas</button>
+        <button class="tab" data-t="dat">ℹ️ Datos</button>
+      </div>
+      <div class="pane on" id="p-res"><div id="result"></div></div>
+      <div class="pane" id="p-mis"><div id="missions"></div></div>
+      <div class="pane" id="p-dat"><div class="info" id="datos"></div></div>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <img src="assets/logo_usb.png" alt="Universidad de San Buenaventura">
+  <span>Facultad de Ingeniería · USB Cali. Vectores reales del modelo spaCy <i>es_core_news_lg</i>; el mapa 2D es solo una sombra de ellos.</span>
+</footer>
+<div id="howto" class="ov show"><div class="ovc">
+  <h2>🎮 ¿Cómo se juega?</h2>
+  <p>Tu misión: <b>enseñarle a una neurona</b> a reconocer algo (por ejemplo, animales) usando <b>muy pocas tarjetas</b>.</p>
+  <ol>
+    <li><b>Elige tarjetas.</b> Toca palabras del mapa: una vez = ✅ (sí es), dos veces = ❌ (no es). Solo tienes unas pocas, ¡elígelas bien!</li>
+    <li><b>Entrena.</b> Pulsa ▶ Entrenar. La neurona ajusta sus 300 pesos y el mapa se pinta: naranja = “creo que sí”, azul = “creo que no”.</li>
+    <li><b>Examen.</b> Pulsa 📝 Presentar examen: te pone a prueba con <b>10 palabras escondidas</b> (los círculos con <b>?</b>). Cuantas más acierte, más ⭐.</li>
+    <li><b>Siguiente ronda.</b> Cada ronda trae menos tarjetas. ¡Consigue las 18 ⭐!</li>
+  </ol>
+  <button class="btn" id="hwOk">¡Entendido, a jugar!</button></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="data/vectores_nivel3.js"></script>
+<script src="js/nivel4.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.thermo{display:flex;align-items:center;gap:8px;margin:4px 0}
+.thermo input{flex:1;accent-color:#E87800;height:8px}
+.thermo .ti{font-size:22px}
+.thermo b{min-width:78px;font-variant-numeric:tabular-nums;color:var(--navy);font-size:13px;text-align:right}
+.regime{font-size:12.5px;font-weight:600;padding:7px 12px;border-radius:12px;background:#FFF3E2;color:#8C4700;margin-bottom:6px}
+.wheelbox{display:flex;justify-content:center}
+#wheel{width:100%;max-width:470px;height:auto;aspect-ratio:1/1}
+#wg{transition:transform 2.6s cubic-bezier(.12,.7,.1,1)}
+.hist{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:8px;min-height:28px}
+.hist .wl.y{background:#E3F5F1;color:#0E6657}
+.pbar{display:grid;grid-template-columns:96px 1fr 46px;gap:8px;align-items:center;margin:4px 0;font-size:12.5px;font-weight:600;color:var(--navy)}
+.pbar .tr{height:14px;background:var(--soft);border-radius:8px;overflow:hidden}
+.pbar .tr i{display:block;height:100%;background:var(--or);border-radius:8px}
+.pbar.ok .tr i{background:#1E9C8A}
+.pbar em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
+.pbar small{display:block;font-size:9.5px;color:var(--mut);font-weight:600}

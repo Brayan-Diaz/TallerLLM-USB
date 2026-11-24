@@ -1,0 +1,137 @@
+el perro ladra en la casa .
+el perro ladra cuando llega alguien .
+el perro come carne .
+el perro come carne todos los días .
+el perro come pan .
+el perro corre en el parque .
+el perro duerme en la cama .
+el perro juega con el niño .
+el perro es el mejor amigo del hombre .
+el gato maúlla en la noche .
+el gato come pescado .
+el gato duerme en el sofá .
+el gato caza al ratón .
+el gato corre por la casa .
+el gato juega con una bola .
+el ratón come queso .
+el ratón corre por la casa .
+el león es el rey de la selva .
+el león caza en la sabana .
+el león duerme todo el día .
+el elefante come plantas .
+el elefante camina por la selva .
+el elefante es muy grande .
+la ballena nada en el mar .
+la ballena es un animal muy grande .
+el tiburón nada en el mar .
+el delfín nada en el mar .
+el pingüino vive en el hielo .
+el pingüino nada en el mar .
+el águila vuela en el cielo .
+el loro habla con la gente .
+la abeja hace miel .
+la abeja vuela por el campo .
+la vaca da leche .
+la vaca come pasto .
+la gallina pone huevos .
+el caballo corre por el campo .
+el caballo come pasto .
+la tortuga camina muy despacio .
+la rana salta en el río .
+el oso come miel .
+el mono come banano .
+la serpiente vive en el campo .
+el tigre caza en la selva .
+la jirafa come hojas .
+el profesor enseña en la escuela .
+el profesor habla con el estudiante .
+el estudiante lee un libro .
+el estudiante estudia en la escuela .
+el estudiante va a la universidad .
+la profesora enseña matemáticas .
+la niña lee un libro .
+la niña juega en el parque .
+la niña come helado .
+la niña va a la escuela .
+el niño juega con el perro .
+el niño come pizza .
+el niño corre en el parque .
+el niño va a la escuela .
+en la escuela se aprende mucho .
+en la biblioteca hay muchos libros .
+mi madre cocina sopa .
+mi madre trabaja en el hospital .
+mi padre trabaja en la ciudad .
+mi padre maneja el carro .
+mi abuela cocina arroz .
+mi abuela me da chocolate .
+mi abuelo cuenta historias .
+mi hermano juega con el perro .
+mi hermana canta en la casa .
+mi tía vive en Bogotá .
+mi familia vive en Colombia .
+me gusta comer pizza .
+me gusta comer helado .
+me gusta jugar con mi perro .
+me gusta leer libros .
+me gusta la música .
+me gusta bailar .
+me gusta nadar en el mar .
+la pizza es deliciosa .
+el helado es dulce .
+la manzana es una fruta .
+el pan es rico .
+el café es amargo .
+el queso viene de la leche .
+la sopa está caliente .
+el arroz es blanco .
+el chocolate es dulce .
+la naranja es una fruta .
+el banano es amarillo .
+Bogotá es la capital de Colombia .
+París es la capital de Francia .
+Madrid es la capital de España .
+Lima es la capital de Perú .
+Tokio es la capital de Japón .
+Roma es la capital de Italia .
+Berlín es la capital de Alemania .
+en Colombia se habla español .
+en Francia se habla francés .
+en Japón se habla japonés .
+en España se habla español .
+en Perú se habla español .
+en Italia se habla italiano .
+Colombia tiene montañas y playas .
+Japón tiene volcanes .
+París tiene una torre muy alta .
+el sol sale en la mañana .
+la luna sale en la noche .
+el sol es una estrella .
+el sol da luz y calor .
+la luna brilla en la noche .
+el sol brilla en el cielo .
+llueve mucho en la selva .
+el volcán lanza fuego .
+el hielo es frío .
+el fuego es caliente .
+el río corre hacia el mar .
+el árbol da sombra .
+el árbol tiene hojas .
+el viento sopla fuerte .
+el rayo cae en la tormenta .
+el planeta tierra gira alrededor del sol .
+el átomo es muy pequeño .
+el computador sirve para trabajar .
+el celular sirve para llamar .
+el robot ayuda a las personas .
+el carro corre por la calle .
+el avión vuela por el cielo .
+el cohete viaja al espacio .
+el tren viaja por la ciudad .
+la bicicleta tiene dos ruedas .
+internet conecta a la gente .
+el rey vive en el castillo .
+la reina vive en el castillo .
+el rey manda en el reino .
+la princesa vive en el castillo .
+el príncipe es hijo del rey .

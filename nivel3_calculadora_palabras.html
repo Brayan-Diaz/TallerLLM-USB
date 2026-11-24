@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller de IA · Nivel 3: La calculadora de palabras</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/mapa-y-calculadora.css">
+
+</head>
+<body>
+<header class="top">
+  <div class="logo"><img src="assets/logo_usb_ing.jpg" alt="Universidad de San Buenaventura · Ingeniería USB Cali"></div>
+  <div class="title">
+    <h1>¿Qué hay detrás de un <span>LLM</span>?</h1>
+    <p>Taller de IA para colegios · Nivel 3</p>
+  </div>
+  <nav class="steps" aria-label="Niveles del taller">
+    <a class="step" href="index.html">🏠 Inicio</a>
+    <a class="step" href="nivel1_autocompleta.html">1 Autocompleta</a>
+    <a class="step" href="nivel2_mapa_palabras.html">2 El mapa</a>
+    <a class="step on" href="nivel3_calculadora_palabras.html">3 Calculadora</a>
+    <a class="step" href="nivel4_entrena_neurona.html">4 Entrena</a>
+    <a class="step" href="nivel5_temperatura.html">5 Temperatura</a>
+  </nav>
+  <div class="score" id="score"></div>
+</header>
+
+<main class="layout">
+  <section class="card idea">
+    <h2>💡 La idea clave</h2>
+    <p>Como cada palabra es un <b>vector de 300 números</b>, se pueden <b>sumar y restar</b> como flechas. Quita a <b>rey</b> lo que tiene <b>hombre</b>, ponle lo que tiene <b>mujer</b>... y la flecha resultante apunta cerca de <b>reina</b>. Nadie le enseñó eso: salió de leer textos.</p>
+  </section>
+
+  <section class="card mapcard">
+    <div class="eq" id="eq">
+      <div class="slot"><label>Palabra</label><div id="sA"></div></div>
+      <div class="op">−</div>
+      <div class="slot"><label>Quítale</label><div id="sB"></div></div>
+      <div class="op">+</div>
+      <div class="slot"><label>Ponle</label><div id="sC"></div></div>
+      <div class="op">=</div>
+      <div class="slot res"><label>Resultado</label><div id="resBox">❓</div></div>
+    </div>
+    <div class="presets" id="presets"></div>
+
+    <div class="seg" id="lens">
+      <button class="on" data-l="auto">🔭 Lente ajustada a esta cuenta</button>
+      <button data-l="pc">🧭 Lente general (PCA)</button>
+    </div>
+    <div class="meterbox"><div id="meterTxt"></div><div class="meter"><b id="meterBar"></b></div></div>
+
+    <div class="svgwrap">
+    <svg id="map" viewBox="0 0 800 800" role="img" aria-label="Mapa 2D de la calculadora de palabras">
+      <defs>
+        <marker id="mN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#202050"/></marker>
+        <marker id="mR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#D64550"/></marker>
+        <marker id="mP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#802080"/></marker>
+      </defs>
+      <g id="dotL"></g>
+      <g id="chainL"></g>
+      <g id="bubL"></g>
+    </svg>
+    </div>
+    <div class="toolbar">
+      <div class="legend">
+        <span class="lg"><i style="background:#202050"></i>Palabra</span>
+        <span class="lg"><i style="background:#D64550"></i>− Quitar</span>
+        <span class="lg"><i style="background:#802080"></i>+ Poner</span>
+        <span class="lg"><i style="background:#E87800"></i>Respuesta</span>
+      </div>
+      <label class="tg"><input type="checkbox" id="tgNames"> Todos los nombres</label>
+      <button class="btn ghost" id="btnHow">❓ Cómo se juega</button>
+    </div>
+  </section>
+
+  <aside class="side">
+    <div class="card">
+      <div class="tabs">
+        <button class="tab on" data-t="res">🧮 Resultado</button>
+        <button class="tab" data-t="mis">🎯 Misiones</button>
+        <button class="tab" data-t="dat">ℹ️ Datos</button>
+      </div>
+      <div class="pane on" id="p-res"><div id="result"></div></div>
+      <div class="pane" id="p-mis"><div id="missions"></div></div>
+      <div class="pane" id="p-dat"><div class="info" id="datos"></div></div>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <img src="assets/logo_usb.png" alt="Universidad de San Buenaventura">
+  <span>Facultad de Ingeniería · USB Cali. Vectores reales del modelo spaCy <i>es_core_news_lg</i>; el mapa 2D es solo una sombra de ellos.</span>
+</footer>
+<div id="howto" class="ov show"><div class="ovc">
+  <h2>🧮 ¿Cómo se juega el Nivel 3?</h2>
+  <p>Tu misión: usar la <b>calculadora de palabras</b>. Como cada palabra es un vector, se pueden <b>sumar y restar</b>.</p>
+  <ol><li><b>Elige tres palabras</b> arriba: Palabra − Quítale + Ponle (o usa los botones con analogías listas).</li><li>La calculadora hace la cuenta con los <b>300 números</b> y te dice qué palabra queda más cerca del resultado.</li><li>En el mapa verás las <b>flechas encadenadas</b>: la palabra, la que quitas (−) y la que pones (+). La estrella ⭐ es el resultado exacto.</li><li>Prueba las analogías de <b>"Más analogías…"</b>: algunas funcionan y otras fallan. ¿Por qué?</li><li>¡Inventa las tuyas y cumple las <b>misiones</b> 🎯!</li></ol>
+  <button class="btn" id="hwOk">¡Entendido, a calcular!</button></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="data/vectores_nivel3.js"></script>
+<script src="js/nivel3.js"></script>
+</body>
+</html>

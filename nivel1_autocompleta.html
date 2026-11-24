@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller de IA · Nivel 1: Autocompleta</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/mapa-y-calculadora.css">
+<link rel="stylesheet" href="css/entrenamiento.css">
+<link rel="stylesheet" href="css/temperatura.css">
+<link rel="stylesheet" href="css/autocompleta.css">
+
+</head>
+<body>
+<header class="top">
+  <div class="logo"><img src="assets/logo_usb_ing.jpg" alt="Universidad de San Buenaventura · Ingeniería USB Cali"></div>
+  <div class="title">
+    <h1>¿Qué hay detrás de un <span>LLM</span>?</h1>
+    <p>Taller de IA para colegios · Nivel 1</p>
+  </div>
+  <nav class="steps" aria-label="Niveles del taller">
+    <a class="step" href="index.html">🏠 Inicio</a>
+    <a class="step on" href="nivel1_autocompleta.html">1 Autocompleta</a>
+    <a class="step" href="nivel2_mapa_palabras.html">2 El mapa</a>
+    <a class="step" href="nivel3_calculadora_palabras.html">3 Calculadora</a>
+    <a class="step" href="nivel4_entrena_neurona.html">4 Entrena</a>
+    <a class="step" href="nivel5_temperatura.html">5 Temperatura</a>
+  </nav>
+  <div class="score" id="score"></div>
+</header>
+
+<main class="layout">
+  <section class="card idea">
+    <h2>💡 La idea clave</h2>
+    <p>Un modelo de lenguaje, en el fondo, <b>adivina la siguiente palabra</b>, como el teclado de tu celular. ¿Cómo sabe cuál? <b>Leyendo muchísimo texto</b> y contando qué palabra suele seguir a cuál. Por eso <b>solo sabe lo que leyó</b>... y por eso el resto del taller trata de cómo darle "sentido" a las palabras con números.</p>
+  </section>
+
+  <section class="card mapcard">
+    <div class="trainbar">
+      <div class="seg mini" id="memSeg"><button data-m="1">🧠 Memoria: 1 palabra</button><button class="on" data-m="2">🧠 Memoria: 2 palabras</button></div>
+      <label class="tg"><input type="checkbox" id="tgVec"> 🧭 Usar vectores para palabras nuevas</label>
+    </div>
+    <div class="sentbox" id="sent"></div>
+    <div class="trainbar" style="margin-top:6px">
+      <input type="text" id="wIn" class="wIn" placeholder="Escribe una palabra y pulsa Enter…" autocomplete="off" spellcheck="false">
+      <button class="btn ghost" id="bBack">⌫ Borrar última</button>
+      <button class="btn ghost" id="bClear">🧹 Empezar de nuevo</button>
+    </div>
+    <div class="presets" id="starters"></div>
+    <h4 style="margin:10px 0 6px">🔮 ¿Qué palabra sigue?</h4>
+    <div class="pg" id="preds"></div>
+    <div class="ctxnote" id="ctxnote"></div>
+    <div class="trainbar" style="margin-top:10px">
+      <button class="btn" id="bAuto">⚡ Autocompletar la frase</button>
+      <button class="btn ghost" id="bDice">🎲 Autocompletar con dado</button>
+      <span class="sp"></span>
+      <button class="btn ghost" id="btnHow">❓ Cómo se juega</button>
+    </div>
+  </section>
+
+  <aside class="side">
+    <div class="card">
+      <div class="tabs">
+        <button class="tab on" data-t="res">🔮 Cómo lo calculó</button>
+        <button class="tab" data-t="duel">🥊 Duelo</button>
+        <button class="tab" data-t="txt">📚 Textos</button>
+        <button class="tab" data-t="mis">🎯 Misiones</button>
+      </div>
+      <div class="pane on" id="p-res"><div id="result"></div></div>
+      <div class="pane" id="p-duel"><div id="duel"></div></div>
+      <div class="pane" id="p-txt"><div id="texts"></div></div>
+      <div class="pane" id="p-mis"><div id="missions"></div></div>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <img src="assets/logo_usb.png" alt="Universidad de San Buenaventura">
+  <span>Facultad de Ingeniería · USB Cali. Vectores reales del modelo spaCy <i>es_core_news_lg</i>; el mapa 2D es solo una sombra de ellos.</span>
+</footer>
+<div id="howto" class="ov show"><div class="ovc">
+  <h2>⌨️ ¿Cómo se juega el Nivel 1?</h2>
+  <p>Tu misión: descubrir <b>cómo adivina un modelo la siguiente palabra</b>, y qué pasa cuando no sabe.</p>
+  <ol>
+    <li><b>Arma una frase.</b> Elige un comienzo (como "el perro") y toca las palabras que te sugiere el modelo, como en el teclado del celular. También puedes escribir tus propias palabras.</li>
+    <li><b>Mira cómo lo calculó:</b> el modelo solo contó qué palabra seguía a cuál en los textos que leyó. La pestaña 📚 Textos muestra lo que leyó, ¡y tú puedes <b>enseñarle frases nuevas</b>!</li>
+    <li><b>Prueba sus límites:</b> cambia su <b>memoria</b> (1 o 2 palabras) y escribe una palabra que nunca leyó. Luego activa 🧭 <b>vectores</b> para ver cómo los números le dan una pista.</li>
+    <li><b>Duelo:</b> en la pestaña 🥊 compites contra la máquina adivinando palabras. ¿Quién acierta más?</li>
+    <li>Cumple las <b>misiones</b> 🎯 para ganar puntos.</li>
+  </ol>
+  <button class="btn" id="hwOk">¡Entendido, a jugar!</button></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="data/vectores_nivel3.js"></script>
+<script src="data/corpus.js"></script>
+<script src="js/nivel1.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller de IA · Nivel 2: El mapa de las palabras (vectores reales)</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+
+</head>
+<body>
+
+<header class="top">
+  <div class="logo"><img src="assets/logo_usb_ing.jpg" alt="Universidad de San Buenaventura · Ingeniería USB Cali"></div>
+  <div class="title">
+    <h1>¿Qué hay detrás de un <span>LLM</span>?</h1>
+    <p>Taller de IA para colegios · Nivel 2</p>
+  </div>
+  <nav class="steps" aria-label="Niveles del taller">
+    <a class="step" href="index.html">🏠 Inicio</a>
+    <a class="step" href="nivel1_autocompleta.html">1 Autocompleta</a>
+    <a class="step on" href="nivel2_mapa_palabras.html">2 El mapa</a>
+    <a class="step" href="nivel3_calculadora_palabras.html">3 Calculadora</a>
+    <a class="step" href="nivel4_entrena_neurona.html">4 Entrena</a>
+    <a class="step" href="nivel5_temperatura.html">5 Temperatura</a>
+  </nav>
+  <div class="score" id="score"></div>
+</header>
+
+<main class="layout">
+  <section class="card idea">
+    <h2>💡 La idea clave</h2>
+    <p>Cada palabra es una flecha (un <b>vector</b>) de <b>300 números reales</b>, aprendidos por un modelo leyendo millones de textos. El mapa solo dibuja <b>2 coordenadas</b>: la información verdadera está <b>oculta</b> en el resto.</p>
+  </section>
+
+  <section class="card mapcard">
+    <div class="hint">
+      <span>👆 Arrastra una palabra</span>
+      <span>🖱️ Haz clic para ver su vector real</span>
+      <span>🔀 Cambia qué 2 coordenadas se dibujan</span>
+    </div>
+
+    <div class="seg" id="seg">
+      <button class="on" data-m="pca">🧭 Componentes automáticos</button>
+      <button data-m="raw">🔢 Números crudos</button>
+    </div>
+    <div class="axes" id="axPCA">
+      <label>➡️ Horizontal</label><div class="chips" id="chipsX"></div>
+      <label>⬆️ Vertical</label><div class="chips" id="chipsY"></div>
+    </div>
+    <div id="axRAW" hidden>
+      <div class="rawrow">➡️ Horizontal: número # <input type="number" id="rawX" min="1" max="300"> <button id="rxr" title="Otro al azar">🎲</button></div>
+      <div class="rawrow">⬆️ Vertical: número # <input type="number" id="rawY" min="1" max="300"> <button id="ryr" title="Otro al azar">🎲</button></div>
+    </div>
+    <div class="meterbox"><div id="meterTxt"></div><div class="meter"><b id="meterBar"></b></div></div>
+
+    <div class="svgwrap">
+    <svg id="map" viewBox="0 0 800 800" role="img" aria-label="Mapa 2D de palabras">
+      <defs>
+        <marker id="ahO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#E87800"/></marker>
+        <marker id="ahP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#802080"/></marker>
+      </defs>
+      <g id="gridL"></g>
+      <g id="axL"></g>
+      <g id="vecL"></g>
+      <g id="wordL"></g>
+    </svg>
+    </div>
+
+    <div class="toolbar">
+      <div class="legend" id="legend"></div>
+      <label class="tg"><input type="checkbox" id="tgNames" checked> Nombres</label>
+      <label class="tg"><input type="checkbox" id="tgAll"> Todas las flechas</label>
+      <span class="sp"></span>
+      <button class="btn ghost" id="btnReset">↺ Reiniciar mapa</button>
+      <button class="btn ghost" id="btnHow">❓ Cómo se juega</button>
+    </div>
+  </section>
+
+  <aside class="side">
+    <div class="card">
+      <div class="tabs">
+        <button class="tab on" data-t="exp">🔍 Explorar</button>
+        <button class="tab" data-t="mis">🎯 Misiones</button>
+        <button class="tab" data-t="dat">ℹ️ Datos</button>
+      </div>
+      <div class="pane on" id="p-exp"><div id="explore"></div></div>
+      <div class="pane" id="p-mis"><div id="missions"></div></div>
+      <div class="pane" id="p-dat"><div class="info" id="datos"></div></div>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <img src="assets/logo_usb.png" alt="Universidad de San Buenaventura">
+  <span>Facultad de Ingeniería · USB Cali. Vectores reales del modelo spaCy <i>es_core_news_lg</i>; el mapa 2D es solo una sombra de ellos.</span>
+</footer>
+<div id="howto" class="ov show"><div class="ovc">
+  <h2>🗺️ ¿Cómo se juega el Nivel 2?</h2>
+  <p>Tu misión: descubrir que cada palabra es una <b>flecha de 300 números</b>, y que el mapa 2D es solo una <b>sombra</b> de ella.</p>
+  <ol><li><b>Haz clic</b> en una palabra: aparece su flecha y, a la derecha, las barras con las <b>2 coordenadas</b> que dibuja el mapa y sus vecinas más parecidas.</li><li><b>Arrastra</b> la burbuja y mira cómo se mueven las barras. Ojo: solo se mueve el dibujo, sus 300 números reales no cambian.</li><li><b>Cambia los ejes</b> (componentes automáticos o números crudos) y mira cuánta información conserva el mapa.</li><li>Haz clic en <b>una segunda palabra</b> y compara: ¿se ven cerca en el mapa y también se parecen de verdad? ¡A veces la sombra engaña!</li><li>Cumple las <b>misiones</b> 🎯 para ganar puntos.</li></ol>
+  <button class="btn" id="hwOk">¡Entendido, a explorar!</button></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="data/vectores_nivel2.js"></script>
+<script src="js/nivel2.js"></script>
+</body>
+</html>

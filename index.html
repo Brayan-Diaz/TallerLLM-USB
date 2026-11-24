@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller de IA · ¿Qué hay detrás de un LLM?</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/inicio.css">
+
+</head>
+<body>
+<header class="top">
+  <div class="logo"><img src="assets/logo_usb_ing.jpg" alt="Universidad de San Buenaventura · Ingeniería USB Cali"></div>
+  <div class="title">
+    <h1>Taller de <span>IA</span> para colegios</h1>
+    <p>Universidad de San Buenaventura Cali · Facultad de Ingeniería</p>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h2>¿Qué hay detrás de un <span>LLM</span>?</h2>
+    <p>Los modelos como ChatGPT parecen magia, pero por dentro hay <b>vectores, sumas y probabilidades</b>. En este taller los vas a construir tú, paso a paso: desde adivinar la siguiente palabra hasta ver por qué a veces <b>se inventan cosas</b>. Todo con datos y cuentas reales.</p>
+    <a class="cta" id="cta" href="nivel1_autocompleta.html">▶ <span id="ctaTxt">Empezar el taller</span></a>
+  </div>
+  <div class="mission">
+    <h3>🎒 Tu progreso</h3>
+    <div class="pt"><span id="pct">0</span>%</div>
+    <div class="mbar"><i id="mbar" style="width:0%"></i></div>
+    <small id="rank">🥚 Aprendiz · aún no has jugado</small><br>
+    <button class="reset" id="reset" style="color:#fff;opacity:.7;margin-top:8px">Borrar progreso</button>
+  </div>
+</section>
+
+<div class="flowline" aria-label="El camino del taller">
+  <span class="b">📖 Leer texto</span><span class="a">→</span><span class="b">🔢 Palabras = números</span><span class="a">→</span><span class="b">➕ Sumar y restar</span><span class="a">→</span><span class="b">🧠 Aprender</span><span class="a">→</span><span class="b">🌡️ Elegir con dado</span>
+</div>
+
+<section class="levels" id="levels"></section>
+
+<section class="how">
+  <div class="card">
+    <div><h4>🎮 Cómo se juega</h4><p>Cada nivel tiene una guía corta al abrirse, misiones para ganar puntos y un rango final. Se puede jugar en el orden que quieras, pero el orden de arriba cuenta una historia.</p></div>
+    <div><h4>🔢 Datos reales</h4><p>Las palabras son vectores reales de 300 números (modelo <i>spaCy es_core_news_lg</i>). Los mapas en 2D son solo una sombra de ellos.</p></div>
+    <div><h4>💻 Sin internet ni cuentas</h4><p>Todo corre en tu navegador. Tu progreso se guarda en este computador.</p></div>
+  </div>
+</section>
+
+<footer>
+  <img src="assets/logo_usb.png" alt="Universidad de San Buenaventura">
+  <span>Facultad de Ingeniería · USB Cali. Taller de IA para colegios.</span>
+</footer>
+
+<script src="js/index.js"></script>
+</body>
+</html>
